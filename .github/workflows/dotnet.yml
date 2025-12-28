@@ -35,8 +35,3 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal
-
-      - name: dotnet pack
-        run: |
-          dotnet pack
-          dotnet pack -r win-x64
