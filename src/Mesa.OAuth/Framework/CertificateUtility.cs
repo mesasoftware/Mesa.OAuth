@@ -19,7 +19,11 @@ namespace Mesa.OAuth.Framework
         {
             var parser = new AsnKeyParser ( Convert.FromBase64String ( privateKey ) );
             var parameters = parser.ParseRSAPrivateKey ( );
+#if NET8_0
             var x509 = new X509Certificate2 ( Encoding.ASCII.GetBytes ( certificate ) );
+#else
+            var x509 = X509CertificateLoader.LoadCertificate ( Encoding.ASCII.GetBytes ( certificate ) );
+#endif
             var provider = new RSACryptoServiceProvider ( );
             provider.ImportParameters ( parameters );
 

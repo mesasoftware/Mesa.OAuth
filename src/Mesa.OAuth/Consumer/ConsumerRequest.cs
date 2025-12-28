@@ -17,6 +17,8 @@ namespace Mesa.OAuth.Consumer
     {
         private readonly IToken? token;
 
+        private HttpClient? httpClient;
+
         public ConsumerRequest ( IOAuthContext context , IOAuthConsumerContext consumerContext , IToken? token )
         {
             ArgumentNullException.ThrowIfNull ( context );
@@ -203,10 +205,10 @@ namespace Mesa.OAuth.Consumer
         {
             try
             {
+                var requestMessage = this.ToRequestMessage ( );
+
                 using ( var httpClient = this.GetHttpClient ( ) )
                 {
-                    var requestMessage = this.ToRequestMessage ( );
-
                     return await httpClient.SendAsync ( requestMessage );
                 }
             }
@@ -261,15 +263,10 @@ namespace Mesa.OAuth.Consumer
 
         private HttpClient GetHttpClient ( )
         {
-            var httpClient = new HttpClient (
-                this.GetHttpClientHandler ( ) );
+            this.httpClient ??= new HttpClient (
+                    this.GetHttpClientHandler ( ) );
 
-            if ( this.Timeout.HasValue )
-            {
-                httpClient.Timeout = new TimeSpan ( 0 , 0 , 0 , 0 , this.Timeout.Value );
-            }
-
-            return httpClient;
+            return this.httpClient;
         }
     }
 }
