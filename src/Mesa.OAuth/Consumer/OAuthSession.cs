@@ -104,10 +104,7 @@ namespace Mesa.OAuth.Consumer
 
             set
             {
-                if ( this.consumerRequestFactory == null )
-                {
-                    throw new ArgumentNullException ( nameof ( value ) );
-                }
+                ArgumentNullException.ThrowIfNull ( value );
 
                 this.consumerRequestFactory = value;
             }

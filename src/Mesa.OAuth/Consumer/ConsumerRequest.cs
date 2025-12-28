@@ -17,8 +17,6 @@ namespace Mesa.OAuth.Consumer
     {
         private readonly IToken? token;
 
-        private HttpClient? httpClient;
-
         public ConsumerRequest ( IOAuthContext context , IOAuthConsumerContext consumerContext , IToken? token )
         {
             ArgumentNullException.ThrowIfNull ( context );
@@ -263,10 +261,8 @@ namespace Mesa.OAuth.Consumer
 
         private HttpClient GetHttpClient ( )
         {
-            this.httpClient ??= new HttpClient (
-                    this.GetHttpClientHandler ( ) );
-
-            return this.httpClient;
+            return new HttpClient (
+                this.GetHttpClientHandler ( ) );
         }
     }
 }
