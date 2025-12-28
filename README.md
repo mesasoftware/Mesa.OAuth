@@ -61,4 +61,4 @@ Downloads/Releases
 You can find it on [Nuget][2].
 
   [1]: https://github.com/mesasoftware/Mesa.OAuth/blob/7a924aaa82faa1ad41c1d5e21a8393104c316d72/artifacts/Oauth_diagram.png
-  [2]: https://www.nuget.org/packages/Mesa.OAuthCore/
+  [2]: https://www.nuget.org/packages/Mesa.OAuth/
