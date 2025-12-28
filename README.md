@@ -5,7 +5,7 @@ The Mesa.OAuth project is a library for creating both OAuth consumers and provid
 
 Status
 -------------
-[![.NET](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml)
 
 What is OAuth
 -------------
