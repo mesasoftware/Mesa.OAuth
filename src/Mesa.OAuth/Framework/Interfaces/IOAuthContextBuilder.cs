@@ -6,10 +6,6 @@ namespace Mesa.OAuth.Framework.Interfaces
 
     public interface IOAuthContextBuilder
     {
-        IOAuthContext FromHttpRequest ( HttpWebRequest request );
-
-        //IOAuthContext FromHttpRequest(HttpRequestBase request);
-
         IOAuthContext FromUri ( string httpMethod , Uri uri );
 
         IOAuthContext FromUrl ( string httpMethod , string url );
