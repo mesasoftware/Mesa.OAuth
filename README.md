@@ -53,23 +53,12 @@ Quick Consumer Example
     
     // make a request for a protected resource
     string responseText = session.Request().Get().ForUrl("http://www.google.com/m8/feeds/contacts/default/base").ToString();
-    
-Additional Resources
---------------------
 
-**OAuth Resources**
-
-  - [Official OAuth website][2]
-  - [OAuth wiki][3]
-  - [A guide to how OAuth works - for beginners][4]
 
 Downloads/Releases
 ------------------
 
-You can find it on [Nuget][5].
+You can find it on [Nuget][2].
 
   [1]: https://github.com/bittercoder/Mesa.OAuth/raw/master/artifacts/Oauth_diagram.png
-  [2]: http://www.oauth.net/
-  [3]: http://wiki.oauth.net/
-  [4]: http://dotnetkicks.com/webservices/OAuth_for_Beginners
-  [5]: https://www.nuget.org/packages/Mesa.OAuthCore/
+  [2]: https://www.nuget.org/packages/Mesa.OAuthCore/
