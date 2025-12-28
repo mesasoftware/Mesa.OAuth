@@ -3,6 +3,10 @@ Introduction
 
 The Mesa.OAuth project is a library for creating both OAuth consumers and providers on .NET. It currently targets the .NET 8, 9 and 10, and is written in C#.
 
+Status
+-------------
+[![.NET](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mesasoftware/Mesa.OAuth/actions/workflows/dotnet.yml)
+
 What is OAuth
 -------------
 
