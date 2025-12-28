@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Mesa.OAuth/Mesa.OAuth.csproj" Id="66792b11-a542-413b-b5bb-e062b6769e97" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Mesa.OAuth.Tests/Mesa.OAuth.Tests.csproj" Id="274229f7-7bcc-48ec-86e2-8446c6a74230" />
+  </Folder>
+</Solution>
