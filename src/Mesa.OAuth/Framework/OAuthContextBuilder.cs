@@ -25,37 +25,6 @@ namespace Mesa.OAuth.Framework
         {
         }
 
-        //public virtual IOAuthContext FromHttpRequest(HttpRequest request)
-        //{
-        //    return FromHttpRequest(new HttpRequestWrapper(request));
-        //}
-
-        public virtual IOAuthContext FromHttpRequest ( HttpWebRequest request )
-        {
-            var context = new OAuthContext
-            {
-                RawUri = this.CleanUri ( request.RequestUri ) ,
-                Cookies = this.CollectCookies ( request ) ,
-                Headers = this.GetCleanedNameValueCollection ( request.Headers ) ,
-                RequestMethod = request.Method ,
-
-                // TODO: Find out where the hell the form data is.
-                //FormEncodedParameters = GetCleanedNameValueCollection(request.Form),
-                QueryParameters = this.GetCleanedNameValueCollection ( GetQueryNameValueCollectionFromUri ( request.RequestUri ) ) ,
-            };
-
-            if ( request.GetRequestStream ( ).Length > 0 )
-            {
-                context.RawContent = new byte [ request.GetRequestStream ( ).Length ];
-                request.GetRequestStream ( ).Read ( context.RawContent , 0 , context.RawContent.Length );
-                request.GetRequestStream ( ).Position = 0;
-            }
-
-            this.ParseAuthorizationHeader ( request.Headers , context );
-
-            return context;
-        }
-
         public virtual IOAuthContext FromUri ( string httpMethod , Uri uri )
         {
             uri = this.CleanUri ( uri );
@@ -174,23 +143,6 @@ namespace Mesa.OAuth.Framework
                 context.AuthorizationHeaderParameters = UriUtility.GetHeaderParameters ( headers [ "Authorization" ] )?.ToNameValueCollection ( );
                 context.UseAuthorizationHeader = true;
             }
-        }
-
-        private static NameValueCollection GetQueryNameValueCollectionFromUri ( Uri uri )
-        {
-            NameValueCollection result = [ ];
-
-            if ( !string.IsNullOrWhiteSpace ( uri.Query ) )
-            {
-                foreach ( string paramNameAndValue in uri.Query.Split ( '&' ) )
-                {
-                    string [ ] parts = paramNameAndValue.Split ( '=' );
-
-                    result.Add ( parts.First ( ) , parts.Last ( ) );
-                }
-            }
-
-            return result;
         }
 
         private static Uri RemoveEmptyQueryStringParameterIntroducedBySomeOpenSocialPlatformImplementations ( Uri adjustedUri )
