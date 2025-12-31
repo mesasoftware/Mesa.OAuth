@@ -4,7 +4,6 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>14.0</LangVersion>
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
     <SignAssembly>False</SignAssembly>
@@ -17,6 +16,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>oauth;csharp;net</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
+    <VersionPrefix>1.0.1.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
