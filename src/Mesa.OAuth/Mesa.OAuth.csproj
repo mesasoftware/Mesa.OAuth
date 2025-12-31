@@ -4,7 +4,6 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>14.0</LangVersion>
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
     <SignAssembly>False</SignAssembly>

@@ -1,0 +1,29 @@
+name: Release GitHub Package
+
+on:
+  push:
+    tags: [ "*.*.*.*" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '10.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build Release
+        run: dotnet build --no-restore --configuration Release
+
+      - name: GitHub Packages Push
+        run: dotnet nuget push "./src/Mesa.OAuth/bin/Release/*.nupkg" --skip-duplicate --api-key "${{ secrets.GITHUB_TOKEN }}" --source "https://nuget.pkg.github.com/mesasoftware/index.json"

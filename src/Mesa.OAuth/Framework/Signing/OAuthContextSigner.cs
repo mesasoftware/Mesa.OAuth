@@ -32,7 +32,14 @@ namespace Mesa.OAuth.Framework.Signing
 
         public bool ValidateSignature ( IOAuthContext? authContext , SigningContext? signingContext )
         {
+#if NET10_0_OR_GREATER
             signingContext?.SignatureBase = authContext?.GenerateSignatureBase ( );
+#else
+            if ( signingContext is not null )
+            {
+                signingContext.SignatureBase = authContext?.GenerateSignatureBase ( );
+            }
+#endif
 
             return this.FindImplementationForAuthContext ( authContext ).ValidateSignature ( authContext , signingContext );
         }
