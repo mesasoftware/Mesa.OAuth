@@ -1,6 +1,7 @@
 name: Release GitHub Package
 
 on:
+  workflow_dispatch:
   push:
     tags: [ "*.*.*.*" ]
 
@@ -26,4 +27,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: GitHub Packages Push
-        run: dotnet nuget push "./src/Mesa.OAuth/bin/Release/*.nupkg" --skip-duplicate --api-key "${{ secrets.GITHUB_TOKEN }}" --source "https://nuget.pkg.github.com/mesasoftware/index.json"
+        run: dotnet nuget push "./src/Mesa.OAuth/bin/Release/*.nupkg" --skip-duplicate --api-key "${{ secrets.GH_PUBLISH_PKG }}" --source "https://nuget.pkg.github.com/mesasoftware/index.json"
