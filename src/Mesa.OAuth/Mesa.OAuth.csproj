@@ -16,6 +16,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>oauth;csharp;net</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
+    <VersionPrefix>1.0.1.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
